@@ -79,7 +79,7 @@ link_libraries(${Pangolin_LIBRARIES}
                ${NLOPT_LIBRARIES}
                ${PCL_LIBRARIES}
                boost_python
-               boost_numpy
+               #boost_numpy
                assimp
                util)
 
