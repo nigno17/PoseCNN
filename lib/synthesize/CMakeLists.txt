@@ -10,7 +10,13 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 add_definitions(-std=c++11)
 add_definitions(-Wall)
 add_definitions(-fPIC)
-#add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
+
+add_definitions(-Wno-unused-result)
+add_definitions(-Wno-unused-but-set-variable)
+add_definitions(-Wno-unused-variable)
+add_definitions(-Wno-reorder)
+add_definitions(-Wno-deprecated-declarations)
 
 include(${CMAKE_SOURCE_DIR}/cmake/FindNLopt.cmake)
 
@@ -54,13 +60,15 @@ include_directories(${Pangolin_INCLUDE_DIRS}
                     ${PCL_INCLUDE_DIRS}
                     ${PROJECT_SOURCE_DIR}/include
                     ${CUDA_TOOLKIT_ROOT_DIR}/samples/common/inc
-                    ${BOOST_INCLUDE_DIRS})
+                    ${BOOST_INCLUDE_DIRS}
+                    /Sophus/sophus)
 
 link_directories(${Pangolin_LIBRARY_DIRS}
                  ${xFusion_LIBRARY_DIRS}
                  ${OpenEXR_LIBRARY_DIRS}
                  ${PCL_LIBRARY_DIRS}
-                 ${BOOST_LIBRARY_DIRS})
+                 ${BOOST_LIBRARY_DIRS}
+                 /Sophus)
 
 link_libraries(${Pangolin_LIBRARIES}
                ${xFusion_LIBRARIES}
